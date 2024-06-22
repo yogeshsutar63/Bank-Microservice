@@ -25,7 +25,7 @@ public class BaseEntity {
     @CreatedDate
     @Column(updatable=false)
     private
-    LocalDateTime createAt;
+    LocalDateTime createdAt;
 
     @CreatedBy
     @Column(updatable = false)
