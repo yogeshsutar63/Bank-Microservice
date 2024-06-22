@@ -3,7 +3,11 @@ package com.bank.loan.service.impl;
 import com.bank.loan.constants.LoansConstants;
 import com.bank.loan.dto.LoansDto;
 import com.bank.loan.entity.Loans;
+import com.bank.loan.exception.LoanAlreadyExistsException;
+import com.bank.loan.exception.ResourceNotFoundException;
+import com.bank.loan.mapper.LoansMapper;
 import com.bank.loan.repository.LoansRepository;
+import com.bank.loan.service.ILoansService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -12,7 +16,7 @@ import java.util.Random;
 
 @Service
 @AllArgsConstructor
-public class LoansServiceImpl {
+public class LoansServiceImpl implements ILoansService {
 
     private LoansRepository loansRepository;
 
