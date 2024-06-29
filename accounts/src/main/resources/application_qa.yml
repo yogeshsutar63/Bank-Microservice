@@ -1,0 +1,15 @@
+spring:
+  config:
+    activate:
+      on-profile: "qa"
+
+build:
+  version: "2.0"
+accounts:
+  message: "Welcome to Banks Account related QA APIs"
+  contactDetails:
+    name: "Smith Aaron-QA Lead"
+    email: "smithaaron@banks.com"
+  onCallSupport:
+    -(666)265-3478
+    -(666)122-7989
