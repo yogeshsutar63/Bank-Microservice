@@ -28,7 +28,7 @@
 		<url/>
 	</scm>
 	<properties>
-		<java.version>22</java.version>
+		<java.version>17</java.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -75,11 +75,11 @@
 			<plugin>
 				<groupId>com.google.cloud.tools</groupId>
 				<artifactId>jib-maven-plugin</artifactId>
-				<version>3.4.3</version>
+				<version>3.3.2</version>
 				<configuration>
-					<from>
-						<image>eclipse-temurin:22</image>
-					</from>
+<!--					<from>-->
+<!--						<image>eclipse-temurin:22-jdk</image>-->
+<!--					</from>-->
 					<to>
 						<image>yogeshsutar63/${project.artifactId}:s4</image>
 					</to>
@@ -90,6 +90,7 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+
 			</plugin>
 		</plugins>
 	</build>
