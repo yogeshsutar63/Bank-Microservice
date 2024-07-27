@@ -21,11 +21,6 @@ spring:
   config:
     import: "optional:configserver:http://localhost:8071/"
 
-
-
-logging:
-  level:
-    org.springframework.web: DEBUG
 management:
   endpoints:
     web:
@@ -37,10 +32,18 @@ management:
   info:
     env:
       enabled: true
+  health:
+    readiness-state:
+      enabled: true
+    liveness-state:
+      enabled: true
 
 endpoints:
   shutdown:
     enabled: true
+  health:
+    probes:
+      enabled: true
 
 eureka:
   instance:
@@ -56,3 +59,9 @@ info:
     name: "cards"
     description: "Bank Cards Application"
     version: "1.0.0"
+
+logging:
+  level:
+    com:
+      bank:
+        cards: DEBUG

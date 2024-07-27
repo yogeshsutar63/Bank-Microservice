@@ -33,10 +33,18 @@ management:
   info:
     env:
       enabled: true
+  health:
+    readiness-state:
+      enabled: true
+    liveness-state:
+      enabled: true
 
 endpoints:
   shutdown:
     enabled: true
+  health:
+    probes:
+      enabled: true
 
 eureka:
   instance:
@@ -52,3 +60,9 @@ info:
     name: "loan"
     description: "Bank Loans Application"
     version: "1.0.0"
+
+logging:
+  level:
+    com:
+      bank:
+        loan: DEBUG

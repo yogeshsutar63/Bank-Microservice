@@ -20,6 +20,10 @@ spring:
     show-sql: true
   config:
     import: "optional:configserver:http://localhost:8071/"
+  cloud:
+    openfeign:
+      circuitbreaker:
+        enabled: true
 
 management:
   endpoints:
@@ -32,10 +36,18 @@ management:
   info:
     env:
       enabled: true
+  health:
+    readiness-state:
+      enabled: true
+    liveness-state:
+      enabled: true
 
 endpoints:
   shutdown:
     enabled: true
+  health:
+    probes:
+      enabled: true
 
 eureka:
   instance:
@@ -51,3 +63,17 @@ info:
     name: "accounts"
     description: "Eazy Bank Accounts Application"
     version: "1.0.0"
+
+logging:
+  level:
+    com:
+      eazybytes:
+        accounts: DEBUG
+
+resilience4j.circuitbreaker:
+  configs:
+    default:
+      slidingWindowSize: 10
+      permittedNumberOfCallsInHalfOpenState: 2
+      failureRateThreshold: 50
+      waitDurationInOpenState: 10000
