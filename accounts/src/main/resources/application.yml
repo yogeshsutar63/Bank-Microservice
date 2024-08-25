@@ -24,6 +24,28 @@ spring:
     openfeign:
       circuitbreaker:
         enabled: true
+    function:
+      definition: updateCommunication
+    stream:
+      bindings:
+        updateCommunication-in-0:
+          destination: communication-sent
+          group: ${spring.application.name}
+        sendCommunication-out-0:
+          destination: send-communication
+      kafka:
+        binder:
+          brokers:
+            -localhost: 9092
+#    bindings:
+#      sendCommunication-out-O:
+#        destination: send-communication
+#  rabbitmq:
+#    host: localhost
+#    port: 5672
+#    username: guest
+#    password: guest
+#    connection-timeout: 10s
 
 management:
   endpoints:
